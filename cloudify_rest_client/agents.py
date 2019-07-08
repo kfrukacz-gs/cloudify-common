@@ -142,15 +142,17 @@ class AgentsClient(object):
         self._wrapper_cls = Agent
 
     def list(self, deployment_id=None, node_ids=None, node_instance_ids=None,
-             install_methods=None):
+             install_methods=None, all_tenants=False):
         """List the agents installed from the manager.
 
         :param deployment_id: Deployment id to filter by
         :param node_ids: List of node ids to filter by
         :param node_instance_ids: List of node instance ids to filter by
+        :param install_methods: List of install methods to filter by
+        :param all_tenants: Whether to list the agents of all tenants
         :return: A ListResponse containing the agents details
         """
-        params = {}
+        params = {'all_tenants': all_tenants}
         if deployment_id:
             params['deployment_id'] = deployment_id
         if node_ids:
