@@ -152,7 +152,7 @@ class AgentsClient(object):
         :param all_tenants: Whether to list the agents of all tenants
         :return: A ListResponse containing the agents details
         """
-        params = {'all_tenants': all_tenants}
+        params = {'_all_tenants': all_tenants}
         if deployment_id:
             params['deployment_id'] = deployment_id
         if node_ids:
